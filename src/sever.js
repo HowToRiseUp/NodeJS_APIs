@@ -4,9 +4,13 @@ require("dotenv").config();
 const configViewEngine = require("./config/viewEngine");
 const router = require("./routes/api");
 const connection = require("./config/database");
+const fileUpload = require("express-fileupload");
 const port = process.env.PORT || 3010;
 // //congig template engine
 configViewEngine(app);
+
+// default options
+app.use(fileUpload());
 
 // // Cho cai req chay thoi
 app.use(express.json());
