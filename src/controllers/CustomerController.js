@@ -9,4 +9,11 @@ const getCustomer = async (req, res) => {
     })
 };
 
-module.exports = { getCustomer }
+const createCustomer = async (req, res) => {
+    return res.status(200).json({
+        error: 0,
+        data: null
+    })
+}
+
+module.exports = { getCustomer, createCustomer }

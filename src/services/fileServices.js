@@ -1,13 +1,17 @@
 const fileUpload = require('express-fileupload');
+const path = require('path');
 
 
 const uploadSingleFile = async (fileObject) => {
-
     try {
-        const uploadPath = __dirname + fileObject.name;
-        await fileObject.mv(uploadPath); return {
+        const timestamp = Date.now();
+        const newFileName = `${timestamp}_${fileObject.name}`;
+        const uploadDir = 'uploads/';
+        const uploadPath = path.join(__dirname, '..', uploadDir, newFileName);
+        await fileObject.mv(uploadPath);
+        return {
             status: 'success',
-            path: 'linksau nay',
+            path: newFileName,
             error: null
         }
     } catch (error) {
