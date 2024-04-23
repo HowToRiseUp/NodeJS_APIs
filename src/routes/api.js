@@ -7,7 +7,7 @@ const { postUploadSingleFile } = require("../controllers/UploadfileController");
 
 router.post('/file', postUploadSingleFile)
 router.get("/customer", getCustomer)
-router.get("/create-customer", createCustomer)
+router.post("/create-customer", createCustomer)
 
 
 // router.get("/create", getCreate);
